@@ -4,8 +4,27 @@ class Camareira extends Thread {
     private String nome;
     private Hotel hotel;
 
+    public Camareira() {
+
+    }
     public Camareira(String nome, Hotel hotel) {
         this.nome = nome;
+        this.hotel = hotel;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
         this.hotel = hotel;
     }
 
