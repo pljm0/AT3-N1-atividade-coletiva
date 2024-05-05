@@ -11,6 +11,12 @@ public class Hotel {
 
     }
 
+    public Hotel(int numQuartos, int numHospedes, int numCamareiras, int numRecepcionistas) {
+        inicializarQuartos(numQuartos);
+        inicializarHospedes(numHospedes);
+        inicializarCamareiras(numCamareiras);
+        inicializarRecepcionistas(numRecepcionistas);
+    }
 
     public ArrayList<Hospede> getHospedes() {
         return hospedes;
@@ -32,6 +38,31 @@ public class Hotel {
 
     public synchronized ArrayList<Quarto> getQuartos() {
         return quartos;
+    }
+    
+
+    private void inicializarQuartos(int numQuartos) {
+        for (int i = 0; i < numQuartos; i++) {
+            quartos.add(new Quarto(i + 1));
+        }
+    }
+
+    private void inicializarHospedes(int numHospedes) {
+        for (int i = 0; i < numHospedes; i++) {
+            hospedes.add(new Hospede("Hóspede " + (i + 1), this));
+        }
+    }
+
+    private void inicializarCamareiras(int numCamareiras) {
+        for (int i = 0; i < numCamareiras; i++) {
+            camareiras.add(new Camareira("Camareira " + (i + 1), this));
+        }
+    }
+
+    private void inicializarRecepcionistas(int numRecepcionistas) {
+        for (int i = 0; i < numRecepcionistas; i++) {
+            recepcionistas.add(new Recepcionista("Recepcionista " + (i + 1), this));
+        }
     }
 
     public synchronized Quarto getQuartoDisponivel() {
