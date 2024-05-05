@@ -1,3 +1,5 @@
+import java.util.List;
+
 class Camareira extends Thread {
     private String nome;
     private Hotel hotel;
@@ -15,14 +17,14 @@ class Camareira extends Thread {
                 if (!quarto.estaOcupado()) {
                     synchronized (hotel) {
                         try {
-                            hotel.wait(); // Espera até que um quarto esteja disponível
+                            hotel.wait();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
                 }
 
-                quarto.liberar(); // Limpa o quarto
+                quarto.liberar();
                 System.out.println(nome + " limpou o quarto " + quarto.getNumero());
             }
         }
