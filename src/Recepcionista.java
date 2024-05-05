@@ -13,8 +13,11 @@ class Recepcionista extends Thread {
             Hospede hospede = hotel.proximoDaFila();
             if (hospede != null) {
                 synchronized (hotel) {
-                    hotel.notifyAll(); // Notifica as camareiras de que um quarto pode estar disponível
+                    hotel.notifyAll();
                 }
-                System.out.println(nome + " está atendendo " + hospede.nome);
+                System.out.println(nome + " está atendendo " + hospede.getNome());
             }
         }
+    }
+
+}
