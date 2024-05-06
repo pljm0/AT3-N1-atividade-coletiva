@@ -31,7 +31,22 @@ public class Main {
             }
         }
 
-        System.out.println("Status do hotel após simulação:");
+        // Adicionando a questão das chaves no output
+        System.out.println("\nStatus das chaves dos quartos:");
+        for (Quarto quarto : hotel.getQuartos()) {
+            if (quarto.estaOcupado()) {
+                System.out.println("Chave do quarto " + quarto.getNumero() + " está com os hóspedes.");
+            } else {
+                if (hotel.chaveNaRecepcao(quarto)) {
+                    System.out.println("Chave do quarto " + quarto.getNumero() + " está na recepção.");
+                } else {
+                    System.out.println("Chave do quarto " + quarto.getNumero() + " está perdida!");
+                }
+            }
+        }
+
+        // Output do status do hotel após simulação
+        System.out.println("\nStatus do hotel após simulação:");
         System.out.println("Número de quartos: " + hotel.getQuartos().size());
         System.out.println("Número de hóspedes: " + hotel.getHospedes().size());
         System.out.println("Número de camareiras: " + hotel.getCamareiras().size());
