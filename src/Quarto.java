@@ -2,6 +2,7 @@ public class Quarto {
 
     private int numero;
     private boolean ocupado;
+    private int capacidade;
 
     public Quarto() {
 
@@ -9,6 +10,7 @@ public class Quarto {
     public Quarto(int numero) {
         this.numero = numero;
         this.ocupado = false;
+        this.capacidade = 4;
     }
 
     public void setNumero(int numero) {
@@ -21,6 +23,10 @@ public class Quarto {
 
     public void setOcupado(boolean ocupado) {
         this.ocupado = ocupado;
+    }
+
+    public int getCapacidade() {
+        return capacidade;
     }
 
     public synchronized boolean estaOcupado() {
