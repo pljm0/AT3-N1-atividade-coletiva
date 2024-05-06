@@ -31,7 +31,6 @@ public class Main {
             }
         }
 
-        // Adicionando a questão das chaves no output
         System.out.println("\nStatus das chaves dos quartos:");
         for (Quarto quarto : hotel.getQuartos()) {
             if (quarto.estaOcupado()) {
