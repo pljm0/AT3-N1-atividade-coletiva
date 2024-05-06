@@ -33,7 +33,19 @@ class Camareira extends Thread {
         while (true) {
             List<Quarto> quartos = hotel.getQuartos();
             for (Quarto quarto : quartos) {
+                synchronized (hotel) {
+                    if (!quarto.estaOcupado() || hotel.chaveNaRecepcao(quarto)) {
+                        try {
+                            hotel.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
                 if (!quarto.estaOcupado()) {
+                    quarto.liberar();
+                    System.out.println(nome + " limpou o quarto " + quarto.getNumero());
                     synchronized (hotel) {
                         try {
                             hotel.wait();
