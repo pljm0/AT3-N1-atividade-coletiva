@@ -38,7 +38,6 @@ class Hospede extends Thread {
             hotel.adicionarHospede(this);
 
             try {
-                // Simula o tempo que o hóspede permanece no quarto
                 Thread.sleep(random.nextInt(5000) + 2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -46,18 +45,18 @@ class Hospede extends Thread {
 
             hotel.removerHospede(this);
             hotel.liberarQuarto(quarto);
-            hotel.entregarChave(quarto); // Entregar a chave na recepção
+            hotel.entregarChave(quarto);
             System.out.println(nome + " saiu do quarto " + quarto.getNumero());
         } else {
             System.out.println(nome + " não encontrou quartos disponíveis. Entrando na fila de espera.");
             hotel.entrarNaFila(this);
             try {
                 while (quarto == null) {
-                    Thread.sleep(random.nextInt(3000) + 1000); // Espera um tempo e tenta novamente
+                    Thread.sleep(random.nextInt(3000) + 1000);
                     quarto = hotel.getQuartoDisponivel();
                 }
                 hotel.sairDaFila(this);
-                run(); // Tentar alugar novamente
+                run();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
