@@ -101,6 +101,16 @@ public class Hotel {
         }
         return null;
     }
+    public synchronized boolean chaveNaRecepcao(Quarto quarto) {
+        // Verifica se a chave do quarto está na recepção
+        // Por simplicidade, vamos assumir que todas as chaves estão na recepção
+        return true;
+    }
+
+    public synchronized void entregarChave(Quarto quarto) {
+        System.out.println("Chave do quarto " + quarto.getNumero() + " entregue na recepção.");
+    }
+
 
     public void run() {
 
