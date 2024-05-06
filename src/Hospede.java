@@ -46,6 +46,7 @@ class Hospede extends Thread {
 
             hotel.removerHospede(this);
             hotel.liberarQuarto(quarto);
+            hotel.entregarChave(quarto); // Entregar a chave na recepção
             System.out.println(nome + " saiu do quarto " + quarto.getNumero());
         } else {
             System.out.println(nome + " não encontrou quartos disponíveis. Entrando na fila de espera.");
