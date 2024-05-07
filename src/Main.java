@@ -23,6 +23,22 @@ public class Main {
             }
         }
 
+        // Liberar alguns quartos depois que os hóspedes chegarem
+        for (int i = 0; i < 5; i++) {
+            Quarto quartoLiberado = hotel.getQuartos().get(i);
+            quartoLiberado.liberar();
+            hotel.entregarChave(quartoLiberado);
+            System.out.println("Quarto " + quartoLiberado.getNumero() + " foi liberado.");
+        }
+
+        // Liberar alguns quartos quando os hóspedes saírem para passear
+        for (int i = 0; i < 3; i++) {
+            Quarto quartoLiberado = hotel.getQuartos().get(i);
+            quartoLiberado.liberar();
+            hotel.entregarChave(quartoLiberado);
+            System.out.println("Quarto " + quartoLiberado.getNumero() + " foi liberado.");
+        }
+
         for (Quarto quarto : hotel.getQuartos()) {
             while (!quarto.estaOcupado()) {
                 Hospede hospede = hospedeChegando(hotel);
